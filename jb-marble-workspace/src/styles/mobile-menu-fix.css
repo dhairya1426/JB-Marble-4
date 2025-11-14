@@ -1,0 +1,75 @@
+/* ========================================
+   MOBILE MENU FIX - HIGHEST PRIORITY
+   ======================================== */
+
+/* Force menu to be on top of everything */
+@media (max-width: 768px) {
+  /* Navigation wrapper - always on top when scrolling - HIGHEST PRIORITY */
+  .navigation {
+    z-index: 99999 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    transform: translateZ(0) !important; /* Force hardware acceleration */
+    -webkit-transform: translateZ(0) !important;
+  }
+
+  /* Navigation container - ensure it's part of the stacking context */
+  .nav-container {
+    position: relative !important;
+    z-index: 99999 !important;
+  }
+
+  /* Nav logo - ensure it's visible */
+  .nav-logo {
+    position: relative !important;
+    z-index: 100000 !important;
+  }
+
+  /* Hamburger toggle - always visible and on top */
+  .mobile-menu-toggle {
+    position: relative !important;
+    z-index: 100000 !important;
+    display: block !important;
+  }
+
+  /* Mobile menu backdrop */
+  .mobile-menu-backdrop {
+    z-index: 99998 !important;
+  }
+
+  /* Mobile menu panel - slides in from right */
+  .nav-menu {
+    z-index: 99999 !important;
+  }
+  
+  /* When mobile menu is open, ensure it's displayed */
+  .nav-menu.mobile-open {
+    display: flex !important;
+    right: 0 !important;
+  }
+
+  /* Force ALL page sections and containers below navigation */
+  .home-container,
+  .hero-section-quarry,
+  .about-section-quarry,
+  .categories-section-quarry,
+  .legacy-section-quarry,
+  .why-choose-section-quarry,
+  .gallery-section-quarry,
+  .contact-section-quarry,
+  section,
+  .section-padding-quarry,
+  .container-quarry {
+    z-index: 1 !important;
+    position: relative;
+  }
+
+  /* Ensure no floating elements cover navigation */
+  .floating-icons,
+  .scroll-to-top {
+    z-index: 9999 !important;
+  }
+}
